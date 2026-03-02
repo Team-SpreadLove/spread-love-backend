@@ -9,8 +9,6 @@ const ARTICLE_URL_PATTERNS = [
   /\/blog\//,
 ];
 
-export const isArticleUrl = (url) => ARTICLE_URL_PATTERNS.some((pattern) => pattern.test(url));
-
 const BLOCKED_PATTERNS = [
   /^127\./,
   /^10\./,
@@ -21,6 +19,8 @@ const BLOCKED_PATTERNS = [
 ];
 
 const BLOCKED_HOSTS = ["localhost", "[::1]", "[::ffff:a9fe:a9fe]"];
+
+export const isArticleUrl = (url) => ARTICLE_URL_PATTERNS.some((pattern) => pattern.test(url));
 
 export const assertExternalUrl = (url) => {
   const { hostname } = new URL(url);
